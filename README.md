@@ -5,6 +5,7 @@ Recursos previstos:
 * Classe que abstrai chamadas a API
 * Suporte a variáveis
 * Steps genéricos para envio de dados, recepção, listas, ...
+* Poder manter dados entre diferentes cenários
 * Estrutura de diretório e arquivos pronta para ser clonada
 
 Dúvidas:
