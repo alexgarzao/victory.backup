@@ -10,6 +10,7 @@ Recursos previstos:
 
 Dúvidas:
 * Qual API usar como exemplo?
+  * GitHub? https://developer.github.com/v3/
 
 Futuramente:
 * Integração pymix
