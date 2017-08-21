@@ -4,7 +4,11 @@ Victory é um complemento do Behave para facilitar o teste de APIs Restful
 Recursos previstos:
 * Classe que abstrai chamadas a API
 * Suporte a variáveis
-* Steps genéricos para envio de dados, recepção, listas, ...
+* Steps genéricos para
+  * enviar dados
+  * validar dados
+  * listas
+  * ...
 * Poder manter dados entre diferentes cenários
 * Estrutura de diretório e arquivos pronta para ser clonada
 
