@@ -1,5 +1,10 @@
 Funcionalidade: Setup do teste.
 
+  Cenário: Definindo a URL base da API.
+    Dado que eu quero definir a URL base da API
+    Quando eu tento definir a URL base como http://localhost:5000/
+    Então nenhuma falha ocorre
+
   Esquema do Cenário: Mapeando os campos do JSON.
     Dado que eu quero mapear os campos do JSON
     E o campo <nome> é do tipo <tipo> e corresponde ao <campo json> no JSON

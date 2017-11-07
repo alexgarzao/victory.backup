@@ -1,6 +1,11 @@
 from behave import *
 
 
+@given(u'que eu quero definir a URL base da API')
+def step_impl(context):
+    pass
+
+
 @given(u'que eu quero mapear os campos do JSON')
 def step_impl(context):
     pass
@@ -9,6 +14,11 @@ def step_impl(context):
 @given(u'o campo {alias} é do tipo {type} e corresponde ao {field} no JSON')
 def step_impl(context, alias, type, field):
     context.config.fields.new_field(alias, type, field)
+
+
+@when(u'eu tento definir a URL base como {base_url}')
+def step_impl(context, base_url):
+    context.config.base_url = base_url
 
 
 @when(u'eu tento mapear os campos')

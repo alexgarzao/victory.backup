@@ -8,3 +8,4 @@ class Config():
         self.fields = Fields()
         self.http_status_codes = HttpStatusCodes()
         self.global_data = GlobalData()
+        self.base_url = ''

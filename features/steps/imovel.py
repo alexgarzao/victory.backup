@@ -9,8 +9,7 @@ def step_impl(context):
 
 @when(u'eu tento cadastrar o imóvel')
 def step_impl(context):
-    # TODO: poder configurar a URL no SETUP
-    context.api.url('http://localhost:5000/imoveis')
+    context.api.url(context.config.base_url + 'imoveis')
     context.api.post()
 
 
@@ -21,6 +20,5 @@ def step_impl(context):
 
 @when(u'eu busco a lista de imóveis')
 def step_impl(context):
-    # TODO: poder configurar a URL no SETUP
-    context.api.url('http://localhost:5000/imoveis')
+    context.api.url(context.config.base_url + 'imoveis')
     context.api.get()
