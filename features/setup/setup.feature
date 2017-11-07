@@ -1,3 +1,4 @@
+@setup
 Funcionalidade: Setup do teste.
 
   Cenário: Definindo a URL base da API.

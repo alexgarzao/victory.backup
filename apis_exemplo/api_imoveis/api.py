@@ -48,6 +48,12 @@ login_parser.add_argument('usuario', required=True, type=str)
 login_parser.add_argument('senha', required=True, type=str)
 
 
+# BDD
+class Bdd(Resource):
+    def post(self):
+        IMOVEIS.clear()
+        return 200
+
 # Login
 class Login(Resource):
     def post(self):
@@ -102,6 +108,7 @@ class ImovelList(Resource):
 ##
 ## Actually setup the Api resource routing here
 ##
+api.add_resource(Bdd, '/bdd-init')
 api.add_resource(Login, '/login')
 api.add_resource(ImovelList, '/imoveis')
 api.add_resource(Imovel, '/imoveis/<imovel_id>')

@@ -1,9 +1,21 @@
 from steps.config import Config
 from behave import *
+from steps.biblioteca.api import Api
 
 
 def before_all(context):
     context.config = Config()
+
+
+def before_feature(context, feature):
+    # import pdb; pdb.set_trace()
+    if 'setup' in feature.tags:
+        return
+
+    api = Api()
+    api.url(context.config.base_url + 'bdd-init')
+    api.post()
+    api.validar_retorno(200)
 
 
 # ----------------------------------------------------------------------------
