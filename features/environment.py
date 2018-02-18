@@ -18,6 +18,11 @@ def before_feature(context, feature):
     api.validar_retorno(200)
 
 
+#def before_step(context, step):
+#    import time; time.sleep(0.1)
+
+
+
 # ----------------------------------------------------------------------------
 # USER-DEFINED TYPES:
 # ----------------------------------------------------------------------------

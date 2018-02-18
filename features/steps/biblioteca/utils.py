@@ -105,7 +105,7 @@ def check_list_table_result(context, api_result, field_list):
     assert_equal(context, len(api_result), len(context.table.rows), 'Numero de registros')
 
     for row_index in range(0, len(context.table.rows)):
-        print ('### Linha da tabela: ', row_index+1)
+        # print ('### Linha da tabela: ', row_index+1)
         row_api_result = api_result[row_index]
         row_expected_result = context.table[row_index]
 

@@ -17,7 +17,7 @@ def valida_lista_dados(context, api_result):
         row_api_result = api_result[row_index]
         row_expected_result = context.table[row_index]
 
-        print ("#### Linha tabela: ", row_index + 1)
+        # print ("#### Linha tabela: ", row_index + 1)
 
         current_column = 0
         for expected_column in expected_columns:

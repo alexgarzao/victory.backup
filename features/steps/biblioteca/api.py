@@ -11,7 +11,7 @@ class Api(object):
         self.parameters = {}
 
     def url(self, url):
-        logging.info("URL: " + url)
+        # logging.info("URL: " + url)
         self.url = url
 
     def get(self):
@@ -25,44 +25,44 @@ class Api(object):
 
     def post(self):
         try:
-            print ("Api Post")
+            # print ("Api Post")
             url = self.url
-            print (" URL:" + self.url)
+            # print (" URL:" + self.url)
             self.last_parameters = self.parameters
             self.retorno = requests.post(url, json=self.parameters)
-            if self.success():
-                print ("POST OK: ", self.url, self.last_parameters)
-            else:
-                print ("POST NOK: ", self.url, self.last_parameters)
-            print ("Api Post Concluido")
+            # if self.success():
+            #     print ("POST OK: ", self.url, self.last_parameters)
+            # else:
+            #     print ("POST NOK: ", self.url, self.last_parameters)
+            # print ("Api Post Concluido")
             return self.retorno
         except Exception as e:
             raise e
 
     def post_image(self, caminho_imagem):
         try:
-            print ("Api Post Image")
+            # print ("Api Post Image")
             url = self.url
-            print (" URL:" + self.url)
+            # print (" URL:" + self.url)
             self.last_parameters = None
             self.retorno = requests.post(url, files={'file': open(caminho_imagem, 'rb')})
-            if self.success():
-                print ("POST OK: ", self.url, self.last_parameters)
-            print ("Api Post Image Concluido")
+            # if self.success():
+            #     print ("POST OK: ", self.url, self.last_parameters)
+            # print ("Api Post Image Concluido")
             return self.retorno
         except Exception as e:
             raise e
 
     def put(self):
         try:
-            print ("Api Put")
+            # print ("Api Put")
             url = self.url
-            print (" URL:" + self.url)
+            # print (" URL:" + self.url)
             self.last_parameters = self.parameters
             self.retorno = requests.put(url, json=self.parameters)
-            if self.success():
-                print ("PUT OK: ", self.url, self.last_parameters)
-            print ("Api Put Concluido")
+            # if self.success():
+            #     print ("PUT OK: ", self.url, self.last_parameters)
+            # print ("Api Put Concluido")
             return self.retorno
         except Exception as e:
             raise e
@@ -77,9 +77,9 @@ class Api(object):
             raise e
 
     def validar_retorno(self, retorno_esperado):
-        print ("Validar Retorno")
-        print ("Retorno esperado:", retorno_esperado)
-        print ("Retorno da API:", self.retorno.status_code)
+        # print ("Validar Retorno")
+        # print ("Retorno esperado:", retorno_esperado)
+        # print ("Retorno da API:", self.retorno.status_code)
 
         json_enviado = json.dumps(self.last_parameters, indent=4, sort_keys=True, separators=(',', ': '))
         if self.retorno.status_code >= 200 and self.retorno.status_code <= 201:

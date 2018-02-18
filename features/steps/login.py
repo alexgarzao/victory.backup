@@ -9,6 +9,6 @@ def step_impl(context):
 
 @when(u'eu tento executar o login')
 def step_impl(context):
-    print("parameters=%s\n" % context.api.parameters)
+    # print("parameters=%s\n" % context.api.parameters)
     context.api.url(context.config.base_url + 'login')
     context.api.post()
