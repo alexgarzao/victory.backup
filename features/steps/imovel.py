@@ -2,6 +2,8 @@ from behave import *
 from steps.biblioteca.api import Api
 
 
+# TODO: Estes steps deveriam ser configuraveis.
+
 @given(u'que eu quero cadastrar um imóvel')
 def step_impl(context):
     context.api = Api()

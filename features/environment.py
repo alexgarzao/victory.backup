@@ -15,7 +15,7 @@ def before_feature(context, feature):
     api = Api()
     api.url(context.config.base_url + 'bdd-init')
     api.post()
-    api.validar_retorno(200)
+    api.validar_retorno(204)
 
 
 #def before_step(context, step):

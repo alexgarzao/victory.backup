@@ -1,7 +1,6 @@
 import json
 import requests
-import logging
-from .utils import deep_find, deep_search, pretty_json
+from .utils import pretty_json
 
 
 class Api(object):
@@ -11,7 +10,6 @@ class Api(object):
         self.parameters = {}
 
     def url(self, url):
-        # logging.info("URL: " + url)
         self.url = url
 
     def get(self):
@@ -25,44 +23,27 @@ class Api(object):
 
     def post(self):
         try:
-            # print ("Api Post")
             url = self.url
-            # print (" URL:" + self.url)
             self.last_parameters = self.parameters
             self.retorno = requests.post(url, json=self.parameters)
-            # if self.success():
-            #     print ("POST OK: ", self.url, self.last_parameters)
-            # else:
-            #     print ("POST NOK: ", self.url, self.last_parameters)
-            # print ("Api Post Concluido")
             return self.retorno
         except Exception as e:
             raise e
 
     def post_image(self, caminho_imagem):
         try:
-            # print ("Api Post Image")
             url = self.url
-            # print (" URL:" + self.url)
             self.last_parameters = None
             self.retorno = requests.post(url, files={'file': open(caminho_imagem, 'rb')})
-            # if self.success():
-            #     print ("POST OK: ", self.url, self.last_parameters)
-            # print ("Api Post Image Concluido")
             return self.retorno
         except Exception as e:
             raise e
 
     def put(self):
         try:
-            # print ("Api Put")
             url = self.url
-            # print (" URL:" + self.url)
             self.last_parameters = self.parameters
             self.retorno = requests.put(url, json=self.parameters)
-            # if self.success():
-            #     print ("PUT OK: ", self.url, self.last_parameters)
-            # print ("Api Put Concluido")
             return self.retorno
         except Exception as e:
             raise e
@@ -77,12 +58,8 @@ class Api(object):
             raise e
 
     def validar_retorno(self, retorno_esperado):
-        # print ("Validar Retorno")
-        # print ("Retorno esperado:", retorno_esperado)
-        # print ("Retorno da API:", self.retorno.status_code)
-
         json_enviado = json.dumps(self.last_parameters, indent=4, sort_keys=True, separators=(',', ': '))
-        if self.retorno.status_code >= 200 and self.retorno.status_code <= 201:
+        if self.retorno.status_code >= 200 and self.retorno.status_code <= 201 and self.retorno.text:
             json_recebido = json.dumps(self.retorno.json(), indent=4, sort_keys=True, separators=(',', ': '))
         else:
             json_recebido = self.retorno.text
@@ -111,9 +88,6 @@ class Api(object):
         """ Verifica a estrutura de retorno em caso de erro. """
         if api_response.status_code < 400 or api_response.status_code > 499:
             return
-
-        # TODO: A Api, caso nao encontre a rota, gerar um 404 default, sem um JSON.
-        # TODO: Temos que alterar isso na API loggingo que possivel.
 
         try:
             error_response = api_response.json()

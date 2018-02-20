@@ -7,7 +7,7 @@ nao_para_no_erro:
 	reset
 
 testes_estaveis: .reset
-	behave --tags=-wip @order.featureset $(varstop)
+	behave --tags=-wip @sequence.featureset $(varstop)
 
 todos_testes: .reset
-	behave @order.featureset $(varstop)
+	behave @sequence.featureset $(varstop)
