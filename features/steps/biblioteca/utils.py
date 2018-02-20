@@ -1,9 +1,5 @@
 import json
-import sys
-from importlib import reload
 
-reload(sys)
-# sys.setdefaultencoding('utf8')
 
 def assert_equal(context, result, expected_result, custom_message):
 
@@ -52,7 +48,7 @@ def define_list_value(context, value):
 
 
 def __is_valid(value):
-    return (isinstance(value,str) and value.isdigit()) or isinstance(value,int)
+    return (isinstance(value, str) and value.isdigit()) or isinstance(value,int)
 
 
 def parse_value(value):

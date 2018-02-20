@@ -52,7 +52,7 @@ login_parser.add_argument('senha', required=True, type=str)
 class Bdd(Resource):
     def post(self):
         IMOVEIS.clear()
-        return 200
+        return '', 204
 
 # Login
 class Login(Resource):
