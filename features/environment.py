@@ -41,3 +41,5 @@ def parse_number(text):
     """
     return int(text)
 register_type(Number=parse_number)
+
+from custom_steps import *
