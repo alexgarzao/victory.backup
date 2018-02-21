@@ -11,3 +11,6 @@ testes_estaveis: .reset
 
 todos_testes: .reset
 	behave @sequence.featureset $(varstop)
+
+testes_outro_projeto:
+	behave --tags=-wip ./features @/home/alexgarzao/go/src/github.com/GrupoZapVivaReal/newbiz-ms-example1/tests/bdd_steps_library/sequence.featureset

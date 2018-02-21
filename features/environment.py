@@ -42,4 +42,9 @@ def parse_number(text):
     return int(text)
 register_type(Number=parse_number)
 
+
+
+import sys
+sys.path.insert(0, '/home/alexgarzao/go/src/github.com/GrupoZapVivaReal/newbiz-ms-example1/tests/victory-api-example/bdd')
+
 from custom_steps import *
