@@ -2,12 +2,23 @@
 Victory é um complemento do Behave para facilitar o teste de APIs Restful
 
 ## Como utilizar
+-- Terminal 1 (baixa API de exemplo com seus testes)
+cd <DIR>
+git clone https://github.com/alexgarzao/victory-api-example.git
+cd victory-api-example/api
+virtualenv -p python3.6 .env
+source .env/bin/activate
+pip install -r requirements.txt
+make run
+
+-- Terminal 2 (baixa victory)
+cd <DIR>
 git clone https://github.com/alexgarzao/victory.git
 cd victory
 virtualenv -p python3.6 .env
 source .env/bin/activate
 pip install -r requirements.txt
-behave --tags=-wip ./features @/home/alexgarzao/temp/victory-api-example/bdd/sequence.featureset
+behave --tags=-wip ./features @<DIR>/victory-api-example/bdd/sequence.featureset
 
 ## Recursos previstos
 * Classe que abstrai chamadas a API
