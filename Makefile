@@ -13,4 +13,4 @@ todos_testes: .reset
 	behave @sequence.featureset $(varstop)
 
 testes_outro_projeto:
-	behave --tags=-wip ./features @/home/alexgarzao/go/src/github.com/GrupoZapVivaReal/newbiz-ms-example1/tests/bdd_steps_library/sequence.featureset
+	behave --tags=-wip -D features_path=/home/alexgarzao/temp/victory-api-example/bdd/ ./features @/home/alexgarzao/temp/victory-api-example/bdd/sequence.featureset

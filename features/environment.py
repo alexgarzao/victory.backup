@@ -4,6 +4,13 @@ from steps.biblioteca.api import Api
 
 
 def before_all(context):
+    userdata = context.config.userdata
+    features_path = userdata.get("features_path", "")
+    if features_path:
+        import sys
+        sys.path.insert(0, features_path)
+        import custom_steps
+
     context.config = Config()
 
 
@@ -42,9 +49,3 @@ def parse_number(text):
     return int(text)
 register_type(Number=parse_number)
 
-
-
-import sys
-sys.path.insert(0, '/home/alexgarzao/go/src/github.com/GrupoZapVivaReal/newbiz-ms-example1/tests/victory-api-example/bdd')
-
-from custom_steps import *
