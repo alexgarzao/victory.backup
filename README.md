@@ -18,7 +18,7 @@ cd victory
 virtualenv -p python3.6 .env
 source .env/bin/activate
 pip install -r requirements.txt
-behave --tags=-wip ./features @<DIR>/victory-api-example/bdd/sequence.featureset
+make FEATURES_PATH=/home/alexgarzao/temp/victory-api-example/bdd/ all
 
 ## Recursos previstos
 * Classe que abstrai chamadas a API
