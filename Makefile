@@ -1,16 +1,18 @@
+ifndef FEATURES_PATH
+$(error FEATURES_PATH is not set. Usage "make FEATURES_PATH=<DIR_FEATURES_PATH> rule", where rule=(stable|all). Optional parameters: dont_stop_on_error)
+endif
+
 $(eval varstop=--stop)
 
-nao_para_no_erro:
+dont_stop_on_error:
 	$(eval varstop=)
 
 .reset:
 	reset
 
-testes_estaveis: .reset
-	behave --tags=-wip @sequence.featureset $(varstop)
+stable: .reset
+	behave --tags=-wip -D features_path=$(FEATURES_PATH)/ ./features @$(FEATURES_PATH)/sequence.featureset $(varstop)
 
-todos_testes: .reset
-	behave @sequence.featureset $(varstop)
+all: .reset
+	behave -D features_path=$(FEATURES_PATH)/ ./features @$(FEATURES_PATH)/sequence.featureset $(varstop)
 
-testes_outro_projeto:
-	behave --tags=-wip -D features_path=/home/alexgarzao/temp/victory-api-example/bdd/ ./features @/home/alexgarzao/temp/victory-api-example/bdd/sequence.featureset
